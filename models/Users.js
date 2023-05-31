@@ -29,7 +29,7 @@ const userSchema = new Schema({
 );
 
 //Before saved, hashed password
-schema.pre('save', async function (next) {
+userSchema.pre('save', async function (next) {
     try {
         if (this.isModified('password')) {
             const hashedPassword = await bcrypt.hash(this.password, 10);
@@ -42,7 +42,7 @@ schema.pre('save', async function (next) {
 });
 
 //Compare password
-schema.methods.comparePassword = async function (password) {
+userSchema.methods.comparePassword = async function (password) {
     try {
         return await bcrypt.compare(password, this.password);
     } catch (error) {
