@@ -4,15 +4,15 @@ const express = require('express');
 const db = require('./config/connection');
 
 //Import Routes
-//const routes = require('./routes')
+const routes = require('./routes')
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8081;
 const app = express();
 
 //Middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-//app.use(routes);
+app.use(routes);
 
 //Start connection to DB and server
 db.on('error', console.error.bind(console, 'Connection error:'));
