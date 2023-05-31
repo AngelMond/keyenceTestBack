@@ -1,0 +1,23 @@
+{
+  "name": "keyencetestback",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngelMond/keyenceTestBack.git"
+  },
+  "author": "angel_mondragon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AngelMond/keyenceTestBack/issues"
+  },
+  "homepage": "https://github.com/AngelMond/keyenceTestBack#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.2.2"
+  }
+}
