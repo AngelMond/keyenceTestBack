@@ -33,7 +33,7 @@ const userController = {
                 return res.status(400).json({ message: 'User or password not valid'});
             } 
 
-            res.status(200).json({message: "logging successful"})
+            res.status(200).json({message: "login successful"})
         } catch (err) {
             res.status(500).json(err);
         }
