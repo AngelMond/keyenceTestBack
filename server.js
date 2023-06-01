@@ -1,4 +1,6 @@
+require('dotenv').config();
 const express = require('express');
+
 
 //Import connection to database
 const db = require('./config/connection');
