@@ -42,33 +42,37 @@ const userController = {
 
       // Verify if user exists
       const response = await User.findOne({ username });
-      const userId = response._id;
+      console.log(response)
+
+      // res.status(200).json(response)
 
       if (response === null) {
-        return res.status(400).json({ data: { message: 'User or password not valid', isSuccessful: false } });
+         return res.status(200).json({ data: { message: 'Username or password not valid', isSuccessful: false } });
       }
 
       // Verifica la contraseña utilizando el método comparePassword
       const isValidPassword = await response.comparePassword(password);
 
       if (!isValidPassword) {
-        return res.status(400).json({ data: { message: 'User or password not valid', isSuccessful: false } });
+        return res.status(200).json({ data: { message: 'Username or password not valid', isSuccessful: false } });
       }
+
+      const userId = response._id;
 
       const payload = { username: response.username }
       const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '24h' });
 
-      res.status(200).json({ token, data: { message: 'Login successful', isSuccessful: true } });
+      return res.status(200).json({ token, data: { message: 'Login successful', isSuccessful: true } });
 
-      req.session.save(() => {
-        req.session.loggedIn = true;
-        req.session.userId = userId;
-        req.session.username = username;
-        req.session.token = token;
-        // res.status(200).redirect("/homepage");
-      });
+      // req.session.save(() => {
+      //   req.session.loggedIn = true;
+      //   req.session.userId = userId;
+      //   req.session.username = username;
+      //   req.session.token = token;
+      //   // res.status(200).redirect("/homepage");
+      // });
     } catch (err) {
-      res.status(500).json(err);
+      return res.status(500).json({message: 'error', isSuccessful: false, err});
     }
   },
 
