@@ -28,7 +28,7 @@ const userController = {
       //     // res.status(200).redirect("/homepage");
       //   });
       // }
-      res.status(200).json({ token, data: { message: 'Login successful', isSuccessful: true } });
+      res.status(200).json({  message: 'Signup successful', isSuccessful: true  });
 
     } catch (err) {
       res.status(200).json({ err, data: { message: 'The user is already registered', isSuccessful: false } });
