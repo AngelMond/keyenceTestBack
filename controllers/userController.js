@@ -28,7 +28,7 @@ const userController = {
       //     // res.status(200).redirect("/homepage");
       //   });
       // }
-      res.status(200).json({  message: 'Signup successful', isSuccessful: true  });
+      res.status(200).json({ message: 'Signup successful', isSuccessful: true });
 
     } catch (err) {
       res.status(200).json({ err, data: { message: 'The user is already registered', isSuccessful: false } });
@@ -47,7 +47,7 @@ const userController = {
       // res.status(200).json(response)
 
       if (response === null) {
-         return res.status(200).json({ data: { message: 'Username or password not valid', isSuccessful: false } });
+        return res.status(200).json({ data: { message: 'Username or password not valid', isSuccessful: false } });
       }
 
       // Verifica la contraseña utilizando el método comparePassword
@@ -62,17 +62,25 @@ const userController = {
       const payload = { username: response.username }
       const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '24h' });
 
-      return res.status(200).json({ token, data: { message: 'Login successful', isSuccessful: true } });
 
-      // req.session.save(() => {
-      //   req.session.loggedIn = true;
-      //   req.session.userId = userId;
-      //   req.session.username = username;
-      //   req.session.token = token;
-      //   // res.status(200).redirect("/homepage");
-      // });
+      req.session.save(() => {
+        req.session.loggedIn = true;
+        req.session.userId = userId;
+        req.session.username = username;
+        req.session.token = token;
+        // res.status(200).redirect("/homepage");
+      });
+      return res.status(200).json({
+        data: {
+          message: 'Login successful',
+          isSuccessful: true,
+          user: username,
+          userId: userId,
+          token: token,
+        }
+      });
     } catch (err) {
-      return res.status(500).json({message: 'error', isSuccessful: false, err});
+      return res.status(500).json({ message: 'error', isSuccessful: false, err });
     }
   },
 
