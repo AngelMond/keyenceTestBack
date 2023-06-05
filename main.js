@@ -23,7 +23,7 @@ const app = express();
 //         maxAge: 10_600_000,
 //     },
 // };
-app.use(cors());
+// app.use(cors());
 // app.use(session(sess));
 
 //Middlewares
