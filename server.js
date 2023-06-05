@@ -11,7 +11,7 @@ const db = require('./config/connection');
 //Import Routes
 const routes = require('./routes')
 
-const PORT = process.env.MYPORT;
+const PORT = process.env.PORT;
 const app = express();
 
 // Set up sessions
