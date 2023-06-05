@@ -8,7 +8,7 @@ RUN npm install
 COPY . .
 
 # Exponemos el puerto en el que se ejecutará el servidor
-EXPOSE 3000
+EXPOSE 8080
 
 # Establecemos las variables de entorno para la conexión a la base de datos de Atlas
 ENV MONGO_URI
@@ -20,4 +20,4 @@ CMD ["npm", "start"]
 docker build -t backend-express .
 
 # Ejecutar el contenedor a partir de la imagen
-docker run -p 3000:3000 backend-express
+docker run -p 8080:8080 backend-express
