@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 // const session = require('express-session');
-// const cors = require('cors');
+const cors = require('cors');
 
 
 
@@ -23,7 +23,7 @@ const app = express();
 //         maxAge: 10_600_000,
 //     },
 // };
-// app.use(cors());
+app.use(cors());
 // app.use(session(sess));
 
 //Middlewares

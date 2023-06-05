@@ -40,6 +40,7 @@ const userController = {
     try {
       const { username, password } = req.body;
 
+      console.log(req.body)
       // Verify if user exists
       const response = await User.findOne({ username });
       console.log(response)
@@ -63,13 +64,13 @@ const userController = {
       const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '24h' });
 
 
-      req.session.save(() => {
-        req.session.loggedIn = true;
-        req.session.userId = userId;
-        req.session.username = username;
-        req.session.token = token;
-        // res.status(200).redirect("/homepage");
-      });
+      // req.session.save(() => {
+      //   req.session.loggedIn = true;
+      //   req.session.userId = userId;
+      //   req.session.username = username;
+      //   req.session.token = token;
+      //   // res.status(200).redirect("/homepage");
+      // });
       return res.status(200).json({
         data: {
           message: 'Login successful',
