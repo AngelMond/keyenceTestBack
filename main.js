@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const session = require('express-session');
+// const session = require('express-session');
 const cors = require('cors');
 
 
@@ -15,16 +15,16 @@ const PORT = process.env.PORT;
 const app = express();
 
 // Set up sessions
-const sess = {
-    secret: 'Super secret secret',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        maxAge: 10_600_000,
-    },
-};
+// const sess = {
+//     secret: 'Super secret secret',
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {
+//         maxAge: 10_600_000,
+//     },
+// };
 app.use(cors());
-app.use(session(sess));
+// app.use(session(sess));
 
 //Middlewares
 app.use(express.urlencoded({ extended: true }));
