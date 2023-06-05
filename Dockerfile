@@ -17,7 +17,6 @@ COPY . .
 EXPOSE 8080
 
 # Establecemos las variables de entorno para la conexión a la base de datos de Atlas
-ENV MONGO_URI
-
+ENV MONGO_URI='mongodb+srv://angelMC:dbMongo182!!@cluster0.gkk2awe.mongodb.net'
 # Comando para ejecutar el servidor
 CMD ["npm", "start"]
