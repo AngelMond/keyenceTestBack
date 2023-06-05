@@ -1,0 +1,4 @@
+runtime: nodejs14
+
+env_variables:
+  MONGO_URI: "$MONGO_URI"
