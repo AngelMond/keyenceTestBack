@@ -27,5 +27,5 @@ RUN npm run build
 FROM node:14-alpine
 WORKDIR /app
 COPY --from=build-stage /app ./
-EXPOSE 3000
+EXPOSE 8080
 CMD ["npm", "start"]
