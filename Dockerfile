@@ -11,7 +11,7 @@ COPY . .
 RUN npm install
 
 # Expone el puerto en el que se ejecuta tu aplicación Express
-EXPOSE 8080
+EXPOSE 3001
 
 # Comando para iniciar la aplicación cuando se ejecute el contenedor
 CMD ["npm", "start"]
