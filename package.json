@@ -2,11 +2,11 @@
   "name": "keyencetestback",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startnodemon": "nodemon server.js",
-    "start": "node server.js"
+    "startnodemon": "nodemon main.js",
+    "start": "node main.js"
   },
   "repository": {
     "type": "git",
