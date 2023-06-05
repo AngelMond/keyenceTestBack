@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // const mongoURI = 'mongodb://127.0.0.1:27017/keyence';
 // const mongoURI = process.env.MONGO_URI;
 // const mongoURI = 'mongodb+srv://angelMC:dbMongo182!!@cluster0.gkk2awe.mongodb.net';
-const mongoURI = 'mongodb+srv://angelMC:dbMongo182!!@cluster0.gkk2awe.mongodb.net/?retryWrites=true&w=majority';
+const mongoURI = 'mongodb+srv://angelMC:dbMongo182!!@cluster0.gkk2awe.mongodb.net/';
 
 
 mongoose.connect(mongoURI, {
