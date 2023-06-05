@@ -9,7 +9,9 @@ const loadfileController = {
     try {
 
       const filesAdded = await UsersCheck.create(req.body);
-      res.status(200).json({ data: { filesAdded, isSuccessful: true, message: 'File data saved' }, });
+      const allRegisters = await UsersCheck.find();
+
+      res.status(200).json({ data: { filesAdded, isSuccessful: true, message: 'File data saved', allRegisters }, });
     } catch (error) {
       res.status(400).json({ error, data: { isSuccessful: false, message: 'Error to dave data' } })
     }
@@ -28,17 +30,21 @@ const loadfileController = {
   findAndUpdate: async (req, res) => {
     try {
 
+      console.log(req.body)
+
       const registerUpdated = await UsersCheck.findOneAndUpdate(
         { _id: req.body._id },
         { $set: req.body },
         { runValidators: true, new: true }
       );
-      res.status(200).json({ registerUpdated, isSuccessful: true, message: 'Row updated' });
+      const updatedRegisters = await UsersCheck.find();
+
+      res.status(200).json({ updatedRegisters, isSuccessful: true, message: 'Row updated' });
     } catch (error) {
       res.status(400).json({ error, data: { isSuccessful: false, message: 'Error to update' } })
     }
   },
-  
+
   findAndDelete: async (req, res) => {
     try {
 
