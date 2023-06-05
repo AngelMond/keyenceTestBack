@@ -21,9 +21,3 @@ ENV MONGO_URI
 
 # Comando para ejecutar el servidor
 CMD ["npm", "start"]
-
-# Construir la imagen Docker
-docker build -t backend-express .
-
-# Ejecutar el contenedor a partir de la imagen
-docker run -p 8080:8080 backend-express
