@@ -1,3 +1,9 @@
+# Usamos una imagen de Node.js como base
+FROM node:14
+
+# Establecemos el directorio de trabajo dentro del contenedor
+WORKDIR /app
+
 # Copiamos el archivo package.json y el package-lock.json al directorio de trabajo
 COPY package*.json ./
 
